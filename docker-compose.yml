@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  front:
+    build: ./src
+    tty: true
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app
+    command: sh -c "npm install && npm run lint && npm run dev"
