@@ -1,10 +1,13 @@
 // hooks/useTimer.ts
 import { useState, useEffect } from "react";
+import useSound from "use-sound";
+import bellSound from "../sound/Horagai01-1.mp3"; // あなたのプロジェクトに適したサウンドファイルを使用してください。
 
 export function useTimer(initialMinutes: number, initialSeconds: number) {
   const [minutes, setMinutes] = useState(initialMinutes);
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
+  const [play] = useSound(bellSound);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -19,6 +22,9 @@ export function useTimer(initialMinutes: number, initialSeconds: number) {
           return 59;
         });
       }, 1000);
+    } else if (isRunning && minutes === 0 && seconds === 0) {
+      play();
+      setIsRunning(false);
     }
 
     return () => {

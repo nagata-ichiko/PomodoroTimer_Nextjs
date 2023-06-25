@@ -1,7 +1,9 @@
+`use client`;
 // components/PomodoroTimer.tsx
 import React, { useEffect, useState } from "react";
 import { useTimer } from "../hooks/useTimer";
-
+import useSound from "use-sound";
+import bellSound from "sound/Horagai01-1.mp3"; // あなたのプロジェクトに適したサウンドファイルを使用してください。
 export const PomodoroTimer: React.FC = () => {
   const workTimer = useTimer(25, 0);
   const breakTimer = useTimer(5, 0);
@@ -27,10 +29,17 @@ export const PomodoroTimer: React.FC = () => {
     breakTimer.minutes,
     breakTimer.seconds,
   ]);
-
   return (
     <div>
       <h1>Pomodoro Timer</h1>
+      <audio controls src="/sound/Horagai01-1.mp3" />
+      <audio controls src="src\sound\Horagai01-1.mp3" />
+      <audio
+        controls
+        src="webpack-internal:///(app-client)/sound/Horagai01-1.mp3"
+      />
+      {/* <audio controls src={bellSound} />
+      <audio controls src={bellSound} /> */}
       {isWorking ? (
         <>
           <p>
