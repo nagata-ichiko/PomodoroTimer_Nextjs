@@ -1,7 +1,7 @@
 // hooks/useTimer.ts
 import { useState, useEffect } from "react";
 import useSound from "use-sound";
-import bellSound from "../sound/Horagai01-1.mp3"; // あなたのプロジェクトに適したサウンドファイルを使用してください。
+import bellSound from "../public/sound/Horagai01-1.mp3"; // あなたのプロジェクトに適したサウンドファイルを使用してください。
 
 export function useTimer(initialMinutes: number, initialSeconds: number) {
   const [minutes, setMinutes] = useState(initialMinutes);

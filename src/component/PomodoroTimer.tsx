@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useTimer } from "../hooks/useTimer";
 import useSound from "use-sound";
-import bellSound from "sound/Horagai01-1.mp3"; // あなたのプロジェクトに適したサウンドファイルを使用してください。
+import bellSound from "../public/sound/Horagai01-1.mp3"; // あなたのプロジェクトに適したサウンドファイルを使用してください。
 export const PomodoroTimer: React.FC = () => {
   const workTimer = useTimer(25, 0);
   const breakTimer = useTimer(5, 0);
